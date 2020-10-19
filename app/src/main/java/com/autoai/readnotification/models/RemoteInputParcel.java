@@ -18,7 +18,8 @@ public class RemoteInputParcel implements Parcelable {
 
 
     public RemoteInputParcel(RemoteInput input) {
-        label = input.getLabel().toString();
+        if(input.getLabel()!=null)label = input.getLabel().toString();
+        else label="";
         resultKey = input.getResultKey();
         charSequenceToStringArray(input.getChoices());
         allowFreeFormInput = input.getAllowFreeFormInput();
